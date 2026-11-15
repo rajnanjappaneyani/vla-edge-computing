@@ -10,7 +10,7 @@ Needs an Apple-silicon Mac (the verifier runs on MLX) and Python 3.12.
 python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
-The detector and verifier weights download on first run. CHAD videos and labels are not included in this repository; get them from the [CHAD project](https://github.com/TeCSAR-UNCC/CHAD) and place 1080p clips in `data/chad/videos/` and their frame-label `.npy` files in `data/chad/labels/`. The score files in `runs/` and the fitted gates in `data/chad/` are included, so `report` works without the videos.
+The verifier weights download on first run. The CHAD subset used here (56 clips and their frame labels, about 2.5 GB) is included under `data/chad/`; see `data/chad/NOTICE.md` for its source and licence. `yolo11n.pt` is the Ultralytics YOLO11n detector (AGPL-3.0).
 
 ## Run
 

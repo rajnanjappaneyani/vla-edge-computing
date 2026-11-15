@@ -2,13 +2,3 @@
 __pycache__/
 .pytest_cache/
 .DS_Store
-
-# Model weights download themselves on first run
-*.pt
-
-# CHAD videos and labels are not redistributed here; see README
-data/chad/videos/
-data/chad/labels/
-
-# Rendered runs contain dataset footage
-runs/*.mp4
