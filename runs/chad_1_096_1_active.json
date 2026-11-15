@@ -1,0 +1,166 @@
+{
+  "summary": {
+    "candidates_scored": 3,
+    "decisions": 3,
+    "alarms": 1,
+    "rejected": 0,
+    "escalated": 2,
+    "guessed": 0,
+    "zooms": 2,
+    "zoom_rate": 0.667,
+    "mean_uncertainty_drop": -0.058,
+    "mean_reward": -0.202,
+    "camera_seconds_away": 5.31,
+    "unseen_candidates": 0,
+    "mean_vlm_latency_s": 0.78,
+    "mode": "active",
+    "scene_seconds": 9.9,
+    "wall_seconds": 10.4,
+    "gate_calibrated": true
+  },
+  "events": [
+    {
+      "t": 2.0,
+      "kind": "first_pass",
+      "box": [
+        0.00017474591732025146,
+        0.33139707777235244,
+        0.03340845108032227,
+        0.43804957071940104
+      ],
+      "snap": 0,
+      "p": 0.066,
+      "label": "unsure",
+      "uncertainty": 0.352,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "latency_s": 0.97
+    },
+    {
+      "t": 2.0,
+      "kind": "move",
+      "box": [
+        0.00017474591732025146,
+        0.33139707777235244,
+        0.03340845108032227,
+        0.43804957071940104
+      ],
+      "zoom": 3.0,
+      "score": 0.109
+    },
+    {
+      "t": 3.8,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.085,
+      "reason": "The woman is walking normally on a paved surface. There are no signs of unusual or anomalous behavior.",
+      "box": [
+        0.00017474591732025146,
+        0.33139707777235244,
+        0.03340845108032227,
+        0.43804957071940104
+      ],
+      "snap": 1,
+      "snap_before": 0,
+      "p_before": 0.066,
+      "u_before": 0.352,
+      "u_after": 0.421,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.212,
+      "latency_s": 1.62
+    },
+    {
+      "t": 5.24,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 5.27,
+      "kind": "first_pass",
+      "box": [
+        0.22649073600769043,
+        0.5122727288140191,
+        0.29127016067504885,
+        0.7763930426703559
+      ],
+      "snap": 2,
+      "p": 0.251,
+      "label": "anomaly",
+      "uncertainty": 0.813,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "latency_s": 0.62
+    },
+    {
+      "t": 5.27,
+      "kind": "decision",
+      "outcome": "alarm",
+      "via": "wide",
+      "p": 0.251,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "box": [
+        0.22649073600769043,
+        0.5122727288140191,
+        0.29127016067504885,
+        0.7763930426703559
+      ],
+      "snap": 2
+    },
+    {
+      "t": 7.87,
+      "kind": "first_pass",
+      "box": [
+        0.0002444863319396973,
+        0.8985561794704862,
+        0.06790621876716614,
+        0.9965893215603299
+      ],
+      "snap": 3,
+      "p": 0.029,
+      "label": "unsure",
+      "uncertainty": 0.19,
+      "reason": "No unusual activity or signs of an anomaly are visible in the image.",
+      "latency_s": 0.76
+    },
+    {
+      "t": 7.87,
+      "kind": "move",
+      "box": [
+        0.0002444863319396973,
+        0.8985561794704862,
+        0.06790621876716614,
+        0.9965893215603299
+      ],
+      "zoom": 3.0,
+      "score": 0.059
+    },
+    {
+      "t": 9.68,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.039,
+      "reason": "No unusual activity or behavior is visible in the images.",
+      "box": [
+        0.0002444863319396973,
+        0.8985561794704862,
+        0.06790621876716614,
+        0.9965893215603299
+      ],
+      "snap": 4,
+      "snap_before": 3,
+      "p_before": 0.029,
+      "u_before": 0.19,
+      "u_after": 0.237,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.191,
+      "latency_s": 1.49
+    },
+    {
+      "t": 9.94,
+      "kind": "home",
+      "away_s": 2.07
+    }
+  ]
+}

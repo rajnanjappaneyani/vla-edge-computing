@@ -1,0 +1,110 @@
+{
+  "summary": {
+    "candidates_scored": 2,
+    "decisions": 2,
+    "alarms": 1,
+    "rejected": 0,
+    "escalated": 1,
+    "guessed": 0,
+    "zooms": 1,
+    "zoom_rate": 0.5,
+    "mean_uncertainty_drop": 0.026,
+    "mean_reward": -0.117,
+    "camera_seconds_away": 3.7,
+    "unseen_candidates": 0,
+    "mean_vlm_latency_s": 2.17,
+    "mode": "active",
+    "scene_seconds": 12.9,
+    "wall_seconds": 13.3,
+    "gate_calibrated": true
+  },
+  "events": [
+    {
+      "t": 0.8,
+      "kind": "first_pass",
+      "box": [
+        0.18253700733184813,
+        0.06984450022379557,
+        0.22317326068878174,
+        0.2358865737915039
+      ],
+      "snap": 0,
+      "p": 0.164,
+      "label": "unsure",
+      "uncertainty": 0.643,
+      "reason": "A person in a white shirt walks from the right side of the frame towards the center, while another person stands near the parked car.",
+      "latency_s": 2.32
+    },
+    {
+      "t": 0.8,
+      "kind": "move",
+      "box": [
+        0.18253700733184813,
+        0.06984450022379557,
+        0.22317326068878174,
+        0.2358865737915039
+      ],
+      "zoom": 3.0,
+      "score": 0.2
+    },
+    {
+      "t": 3.07,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.153,
+      "reason": "The two individuals appear to be standing still and conversing near a parked car, with no significant movement or unusual behavior.",
+      "box": [
+        0.18253700733184813,
+        0.06984450022379557,
+        0.22317326068878174,
+        0.2358865737915039
+      ],
+      "snap": 1,
+      "snap_before": 0,
+      "p_before": 0.164,
+      "u_before": 0.643,
+      "u_after": 0.617,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.117,
+      "latency_s": 2.51
+    },
+    {
+      "t": 4.5,
+      "kind": "home",
+      "away_s": 3.7
+    },
+    {
+      "t": 5.34,
+      "kind": "first_pass",
+      "box": [
+        0.07916776537895202,
+        0.039843453301323786,
+        0.19170382022857665,
+        0.18206685384114582
+      ],
+      "snap": 2,
+      "p": 0.499,
+      "label": "anomaly",
+      "uncertainty": 1.0,
+      "reason": "Two individuals are engaged in a physical altercation in a parking lot, with one person pushing the other.",
+      "latency_s": 2.02
+    },
+    {
+      "t": 5.34,
+      "kind": "decision",
+      "outcome": "alarm",
+      "via": "wide",
+      "p": 0.499,
+      "reason": "Two individuals are engaged in a physical altercation in a parking lot, with one person pushing the other.",
+      "box": [
+        0.07916776537895202,
+        0.039843453301323786,
+        0.19170382022857665,
+        0.18206685384114582
+      ],
+      "snap": 2
+    }
+  ]
+}

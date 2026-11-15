@@ -1,0 +1,522 @@
+{
+  "summary": {
+    "candidates_scored": 12,
+    "decisions": 6,
+    "alarms": 0,
+    "rejected": 0,
+    "escalated": 6,
+    "guessed": 0,
+    "zooms": 6,
+    "zoom_rate": 0.5,
+    "mean_uncertainty_drop": 0.011,
+    "mean_reward": -0.216,
+    "camera_seconds_away": 19.44,
+    "unseen_candidates": 1,
+    "mean_vlm_latency_s": 0.65,
+    "mode": "active",
+    "scene_seconds": 20.0,
+    "wall_seconds": 26.0,
+    "gate_calibrated": true
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.15077998638153076,
+        0.0660856670803494,
+        0.17234227657318116,
+        0.17820190853542753
+      ],
+      "snap": 0,
+      "p": 0.064,
+      "label": "unsure",
+      "uncertainty": 0.341,
+      "reason": "A person is walking on a sidewalk near a car, which is an ordinary behavior.",
+      "latency_s": 0.85
+    },
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.2197958469390869,
+        0.08005025651719835,
+        0.2456456184387207,
+        0.16999446021185982
+      ],
+      "snap": 1,
+      "p": 0.03,
+      "label": "unsure",
+      "uncertainty": 0.197,
+      "reason": "No unusual activity or threats visible in the image.",
+      "latency_s": 0.6
+    },
+    {
+      "t": 0.0,
+      "kind": "deferred",
+      "box": [
+        0.2197958469390869,
+        0.08005025651719835,
+        0.2456456184387207,
+        0.16999446021185982
+      ],
+      "p": 0.03
+    },
+    {
+      "t": 0.0,
+      "kind": "move",
+      "box": [
+        0.15077998638153076,
+        0.0660856670803494,
+        0.17234227657318116,
+        0.17820190853542753
+      ],
+      "zoom": 3.0,
+      "score": 0.106
+    },
+    {
+      "t": 1.8,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.047,
+      "reason": "No unusual or anomalous activity is visible in the images.",
+      "box": [
+        0.15077998638153076,
+        0.0660856670803494,
+        0.17234227657318116,
+        0.17820190853542753
+      ],
+      "snap": 2,
+      "snap_before": 0,
+      "p_before": 0.064,
+      "u_before": 0.341,
+      "u_after": 0.274,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.076,
+      "latency_s": 1.47
+    },
+    {
+      "t": 3.24,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 3.27,
+      "kind": "first_pass",
+      "box": [
+        0.22008109092712402,
+        0.07975143856472439,
+        0.24442896842956544,
+        0.16758908165825737
+      ],
+      "snap": 3,
+      "p": 0.034,
+      "label": "unsure",
+      "uncertainty": 0.215,
+      "reason": "No unusual activity or signs of danger are visible in the image.",
+      "latency_s": 0.62
+    },
+    {
+      "t": 3.27,
+      "kind": "move",
+      "box": [
+        0.22008109092712402,
+        0.07975143856472439,
+        0.24442896842956544,
+        0.16758908165825737
+      ],
+      "zoom": 3.0,
+      "score": 0.067
+    },
+    {
+      "t": 5.07,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.043,
+      "reason": "No unusual or anomalous activity is visible in the images.",
+      "box": [
+        0.22008109092712402,
+        0.07975143856472439,
+        0.24442896842956544,
+        0.16758908165825737
+      ],
+      "snap": 4,
+      "snap_before": 3,
+      "p_before": 0.034,
+      "u_before": 0.215,
+      "u_after": 0.255,
+      "t_move": 1.43,
+      "n_missed": 1,
+      "reward": -0.683,
+      "latency_s": 1.68
+    },
+    {
+      "t": 6.51,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 6.54,
+      "kind": "first_pass",
+      "box": [
+        0.08336806297302246,
+        0.08300793965657552,
+        0.10438294410705566,
+        0.11616952684190539
+      ],
+      "snap": 5,
+      "p": 0.05,
+      "label": "unsure",
+      "uncertainty": 0.287,
+      "reason": "No distinct or unusual activity visible in the image.",
+      "latency_s": 0.63
+    },
+    {
+      "t": 6.54,
+      "kind": "first_pass",
+      "box": [
+        0.2880519390106201,
+        0.0704472541809082,
+        0.3113438129425049,
+        0.12744599448310004
+      ],
+      "snap": 6,
+      "p": 0.043,
+      "label": "unsure",
+      "uncertainty": 0.257,
+      "reason": "No unusual activity or behavior visible in the image.",
+      "latency_s": 0.57
+    },
+    {
+      "t": 6.54,
+      "kind": "deferred",
+      "box": [
+        0.2880519390106201,
+        0.0704472541809082,
+        0.3113438129425049,
+        0.12744599448310004
+      ],
+      "p": 0.043
+    },
+    {
+      "t": 6.54,
+      "kind": "move",
+      "box": [
+        0.08336806297302246,
+        0.08300793965657552,
+        0.10438294410705566,
+        0.11616952684190539
+      ],
+      "zoom": 3.0,
+      "score": 0.089
+    },
+    {
+      "t": 8.34,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.056,
+      "reason": "The image shows a dark blue Volvo SUV parked in a parking space. There are no visible signs of anomalous activity, such as fighting, theft, or unusual behavior. The scene",
+      "box": [
+        0.08336806297302246,
+        0.08300793965657552,
+        0.10438294410705566,
+        0.11616952684190539
+      ],
+      "snap": 7,
+      "snap_before": 5,
+      "p_before": 0.05,
+      "u_before": 0.287,
+      "u_after": 0.312,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.169,
+      "latency_s": 1.72
+    },
+    {
+      "t": 9.78,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 9.81,
+      "kind": "first_pass",
+      "box": [
+        0.14145435094833375,
+        0.06574295891655815,
+        0.24514524936676024,
+        0.19958006540934245
+      ],
+      "snap": 8,
+      "p": 0.077,
+      "label": "unsure",
+      "uncertainty": 0.392,
+      "reason": "Three individuals are walking on a sidewalk near a car, appearing to be in normal, non-anomalous behavior.",
+      "latency_s": 0.71
+    },
+    {
+      "t": 9.81,
+      "kind": "move",
+      "box": [
+        0.14145435094833375,
+        0.06574295891655815,
+        0.24514524936676024,
+        0.19958006540934245
+      ],
+      "zoom": 3.0,
+      "score": 0.122
+    },
+    {
+      "t": 11.61,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.055,
+      "reason": "No unusual or anomalous activity is visible in the images.",
+      "box": [
+        0.14145435094833375,
+        0.06574295891655815,
+        0.24514524936676024,
+        0.19958006540934245
+      ],
+      "snap": 9,
+      "snap_before": 8,
+      "p_before": 0.077,
+      "u_before": 0.392,
+      "u_after": 0.308,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.059,
+      "latency_s": 1.65
+    },
+    {
+      "t": 13.05,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 13.08,
+      "kind": "first_pass",
+      "box": [
+        0.13552482128143312,
+        0.06606080796983507,
+        0.15889863967895507,
+        0.15820823245578342
+      ],
+      "snap": 10,
+      "p": 0.094,
+      "label": "unsure",
+      "uncertainty": 0.451,
+      "reason": "A person is standing on the edge of a vehicle, which may indicate a potential hazard or an unusual activity.",
+      "latency_s": 0.67
+    },
+    {
+      "t": 13.08,
+      "kind": "first_pass",
+      "box": [
+        0.222397518157959,
+        0.0677919175889757,
+        0.24824776649475097,
+        0.182392332288954
+      ],
+      "snap": 11,
+      "p": 0.051,
+      "label": "unsure",
+      "uncertainty": 0.289,
+      "reason": "A person is walking away from the camera, which is a normal action.",
+      "latency_s": 0.62
+    },
+    {
+      "t": 13.08,
+      "kind": "first_pass",
+      "box": [
+        0.31349763870239256,
+        0.07213043636745876,
+        0.33049445152282714,
+        0.13455354902479383
+      ],
+      "snap": 12,
+      "p": 0.062,
+      "label": "unsure",
+      "uncertainty": 0.336,
+      "reason": "A person is seen walking on the ground, which is an ordinary behavior and not an anomaly.",
+      "latency_s": 0.64
+    },
+    {
+      "t": 13.08,
+      "kind": "deferred",
+      "box": [
+        0.222397518157959,
+        0.0677919175889757,
+        0.24824776649475097,
+        0.182392332288954
+      ],
+      "p": 0.051
+    },
+    {
+      "t": 13.08,
+      "kind": "deferred",
+      "box": [
+        0.31349763870239256,
+        0.07213043636745876,
+        0.33049445152282714,
+        0.13455354902479383
+      ],
+      "p": 0.062
+    },
+    {
+      "t": 13.08,
+      "kind": "move",
+      "box": [
+        0.13552482128143312,
+        0.06606080796983507,
+        0.15889863967895507,
+        0.15820823245578342
+      ],
+      "zoom": 3.0,
+      "score": 0.14
+    },
+    {
+      "t": 14.88,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.054,
+      "reason": "No unusual or anomalous activity is visible in the images.",
+      "box": [
+        0.13552482128143312,
+        0.06606080796983507,
+        0.15889863967895507,
+        0.15820823245578342
+      ],
+      "snap": 13,
+      "snap_before": 10,
+      "p_before": 0.094,
+      "u_before": 0.451,
+      "u_after": 0.301,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": 0.006,
+      "latency_s": 1.47
+    },
+    {
+      "t": 16.32,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 16.35,
+      "kind": "first_pass",
+      "box": [
+        0.21906394958496095,
+        0.07946357727050782,
+        0.2452789306640625,
+        0.1717260996500651
+      ],
+      "snap": 14,
+      "p": 0.035,
+      "label": "unsure",
+      "uncertainty": 0.219,
+      "reason": "No unusual activity or threats visible in the image.",
+      "latency_s": 0.59
+    },
+    {
+      "t": 16.35,
+      "kind": "move",
+      "box": [
+        0.21906394958496095,
+        0.07946357727050782,
+        0.2452789306640625,
+        0.1717260996500651
+      ],
+      "zoom": 3.0,
+      "score": 0.068
+    },
+    {
+      "t": 18.15,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.076,
+      "reason": "No unusual or anomalous activity is visible in the images.",
+      "box": [
+        0.21906394958496095,
+        0.07946357727050782,
+        0.2452789306640625,
+        0.1717260996500651
+      ],
+      "snap": 15,
+      "snap_before": 14,
+      "p_before": 0.035,
+      "u_before": 0.219,
+      "u_after": 0.387,
+      "t_move": 1.43,
+      "n_missed": 0,
+      "reward": -0.312,
+      "latency_s": 1.67
+    },
+    {
+      "t": 19.59,
+      "kind": "home",
+      "away_s": 3.24
+    },
+    {
+      "t": 19.62,
+      "kind": "first_pass",
+      "box": [
+        0.20791807174682617,
+        0.10481635199652778,
+        0.2431796073913574,
+        0.26037796868218316
+      ],
+      "snap": 16,
+      "p": 0.062,
+      "label": "unsure",
+      "uncertainty": 0.336,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "latency_s": 0.63
+    },
+    {
+      "t": 19.62,
+      "kind": "first_pass",
+      "box": [
+        0.31183481216430664,
+        0.0667801751030816,
+        0.33733842372894285,
+        0.1352718777126736
+      ],
+      "snap": 17,
+      "p": 0.052,
+      "label": "unsure",
+      "uncertainty": 0.296,
+      "reason": "Two individuals are walking closely together, appearing to be in a normal, non-anomalous manner.",
+      "latency_s": 0.66
+    },
+    {
+      "t": 19.62,
+      "kind": "deferred",
+      "box": [
+        0.31183481216430664,
+        0.0667801751030816,
+        0.33733842372894285,
+        0.1352718777126736
+      ],
+      "p": 0.052
+    },
+    {
+      "t": 19.62,
+      "kind": "move",
+      "box": [
+        0.20791807174682617,
+        0.10481635199652778,
+        0.2431796073913574,
+        0.26037796868218316
+      ],
+      "zoom": 3.0,
+      "score": 0.104
+    }
+  ]
+}

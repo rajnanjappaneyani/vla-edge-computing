@@ -1,0 +1,288 @@
+{
+  "summary": {
+    "candidates_scored": 6,
+    "decisions": 4,
+    "alarms": 0,
+    "rejected": 0,
+    "escalated": 4,
+    "guessed": 0,
+    "zooms": 4,
+    "zoom_rate": 0.667,
+    "mean_uncertainty_drop": -0.13,
+    "mean_reward": -0.396,
+    "camera_seconds_away": 12.88,
+    "unseen_candidates": 1,
+    "mean_vlm_latency_s": 0.77,
+    "mode": "active",
+    "scene_seconds": 14.0,
+    "wall_seconds": 15.8,
+    "gate_calibrated": false
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.13054964542388917,
+        0.5940309312608507,
+        0.19066181182861328,
+        0.7404930962456597
+      ],
+      "p": 0.301,
+      "label": "unsure",
+      "uncertainty": 0.883,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking normally.",
+      "latency_s": 1.45
+    },
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.24238691329956055,
+        0.6053010728624132,
+        0.2625282764434814,
+        0.7367986043294271
+      ],
+      "p": 0.677,
+      "label": "unsure",
+      "uncertainty": 0.907,
+      "reason": "A person is walking near a blue and white vehicle, which appears to be a bus.",
+      "latency_s": 0.63
+    },
+    {
+      "t": 0.0,
+      "kind": "deferred",
+      "box": [
+        0.13054964542388917,
+        0.5940309312608507,
+        0.19066181182861328,
+        0.7404930962456597
+      ],
+      "p": 0.301
+    },
+    {
+      "t": 0.0,
+      "kind": "move",
+      "box": [
+        0.24238691329956055,
+        0.6053010728624132,
+        0.2625282764434814,
+        0.7367986043294271
+      ],
+      "zoom": 3.0,
+      "score": 0.282
+    },
+    {
+      "t": 1.84,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.421,
+      "reason": "The image shows two people standing near a bus, with no visible signs of an anomaly.",
+      "box": [
+        0.24238691329956055,
+        0.6053010728624132,
+        0.2625282764434814,
+        0.7367986043294271
+      ],
+      "p_before": 0.677,
+      "u_before": 0.907,
+      "u_after": 0.982,
+      "t_move": 1.44,
+      "n_missed": 0,
+      "reward": -0.219,
+      "latency_s": 1.6
+    },
+    {
+      "t": 3.28,
+      "kind": "home",
+      "away_s": 3.28
+    },
+    {
+      "t": 3.36,
+      "kind": "first_pass",
+      "box": [
+        0.13049075603485108,
+        0.5918658786349826,
+        0.19065618515014648,
+        0.7407684326171875
+      ],
+      "p": 0.265,
+      "label": "unsure",
+      "uncertainty": 0.835,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking and standing normally.",
+      "latency_s": 0.62
+    },
+    {
+      "t": 3.36,
+      "kind": "move",
+      "box": [
+        0.13049075603485108,
+        0.5918658786349826,
+        0.19065618515014648,
+        0.7407684326171875
+      ],
+      "zoom": 3.0,
+      "score": 0.259
+    },
+    {
+      "t": 5.2,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.446,
+      "reason": "The image shows two people standing near a bus, with no visible signs of violence, theft, or unusual activity. They appear to be walking or standing normally.",
+      "box": [
+        0.13049075603485108,
+        0.5918658786349826,
+        0.19065618515014648,
+        0.7407684326171875
+      ],
+      "p_before": 0.265,
+      "u_before": 0.835,
+      "u_after": 0.992,
+      "t_move": 1.44,
+      "n_missed": 1,
+      "reward": -0.801,
+      "latency_s": 1.76
+    },
+    {
+      "t": 6.64,
+      "kind": "home",
+      "away_s": 3.28
+    },
+    {
+      "t": 6.72,
+      "kind": "first_pass",
+      "box": [
+        0.7609859466552734,
+        0.2875882042778863,
+        0.90069580078125,
+        0.4859392801920573
+      ],
+      "p": 0.253,
+      "label": "unsure",
+      "uncertainty": 0.816,
+      "reason": "No unusual activity or threats visible; individuals appear to be standing and conversing normally.",
+      "latency_s": 0.63
+    },
+    {
+      "t": 6.72,
+      "kind": "move",
+      "box": [
+        0.7609859466552734,
+        0.2875882042778863,
+        0.90069580078125,
+        0.4859392801920573
+      ],
+      "zoom": 2.8,
+      "score": 0.268
+    },
+    {
+      "t": 8.44,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.579,
+      "reason": "The image shows a person in a blue and white bus, which is a large vehicle, and the person is walking on the sidewalk. There is no clear indication of an anomaly such",
+      "box": [
+        0.7609859466552734,
+        0.2875882042778863,
+        0.90069580078125,
+        0.4859392801920573
+      ],
+      "p_before": 0.253,
+      "u_before": 0.816,
+      "u_after": 0.982,
+      "t_move": 1.32,
+      "n_missed": 0,
+      "reward": -0.298,
+      "latency_s": 1.77
+    },
+    {
+      "t": 9.76,
+      "kind": "home",
+      "away_s": 3.04
+    },
+    {
+      "t": 9.84,
+      "kind": "first_pass",
+      "box": [
+        0.2428363084793091,
+        0.609450191921658,
+        0.2644431352615356,
+        0.7356118943956164
+      ],
+      "p": 0.713,
+      "label": "unsure",
+      "uncertainty": 0.865,
+      "reason": "A person is walking near a bus, which is a typical movement and does not indicate an anomaly.",
+      "latency_s": 0.65
+    },
+    {
+      "t": 9.84,
+      "kind": "move",
+      "box": [
+        0.2428363084793091,
+        0.609450191921658,
+        0.2644431352615356,
+        0.7356118943956164
+      ],
+      "zoom": 3.0,
+      "score": 0.269
+    },
+    {
+      "t": 11.68,
+      "kind": "decision",
+      "outcome": "escalate",
+      "via": "zoom",
+      "p": 0.433,
+      "reason": "The image shows a bus and people walking on a sidewalk, with no visible security threat or unusual activity.",
+      "box": [
+        0.2428363084793091,
+        0.609450191921658,
+        0.2644431352615356,
+        0.7356118943956164
+      ],
+      "p_before": 0.713,
+      "u_before": 0.865,
+      "u_after": 0.987,
+      "t_move": 1.44,
+      "n_missed": 0,
+      "reward": -0.266,
+      "latency_s": 1.62
+    },
+    {
+      "t": 13.12,
+      "kind": "home",
+      "away_s": 3.28
+    },
+    {
+      "t": 13.2,
+      "kind": "first_pass",
+      "box": [
+        0.1273815870285034,
+        0.5967803107367622,
+        0.18406434059143068,
+        0.742596435546875
+      ],
+      "p": 0.333,
+      "label": "unsure",
+      "uncertainty": 0.918,
+      "reason": "No significant anomalies detected. Individuals appear to be walking normally near a bus.",
+      "latency_s": 0.61
+    },
+    {
+      "t": 13.2,
+      "kind": "move",
+      "box": [
+        0.1273815870285034,
+        0.5967803107367622,
+        0.18406434059143068,
+        0.742596435546875
+      ],
+      "zoom": 3.0,
+      "score": 0.285
+    }
+  ]
+}

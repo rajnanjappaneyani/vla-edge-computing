@@ -1,0 +1,333 @@
+{
+  "summary": {
+    "candidates_scored": 10,
+    "decisions": 10,
+    "alarms": 2,
+    "rejected": 8,
+    "escalated": 0,
+    "guessed": 8,
+    "zooms": 0,
+    "zoom_rate": 0.0,
+    "mean_uncertainty_drop": null,
+    "mean_reward": null,
+    "camera_seconds_away": 0,
+    "unseen_candidates": 0,
+    "mean_vlm_latency_s": 0.68,
+    "mode": "passive",
+    "scene_seconds": 14.9,
+    "wall_seconds": 14.7,
+    "gate_calibrated": true
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.7859371185302735,
+        0.2675850762261285,
+        0.8450935363769532,
+        0.47861082288953993
+      ],
+      "snap": 0,
+      "p": 0.158,
+      "label": "anomaly",
+      "uncertainty": 0.629,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "latency_s": 0.97
+    },
+    {
+      "t": 0.0,
+      "kind": "decision",
+      "outcome": "alarm",
+      "via": "wide",
+      "p": 0.158,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "box": [
+        0.7859371185302735,
+        0.2675850762261285,
+        0.8450935363769532,
+        0.47861082288953993
+      ],
+      "snap": 0
+    },
+    {
+      "t": 2.0,
+      "kind": "first_pass",
+      "box": [
+        0.32244460582733153,
+        0.6729657491048177,
+        0.3907098054885864,
+        0.9641829596625434
+      ],
+      "snap": 1,
+      "p": 0.131,
+      "label": "unsure",
+      "uncertainty": 0.561,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "latency_s": 0.64
+    },
+    {
+      "t": 2.0,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.131,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "box": [
+        0.32244460582733153,
+        0.6729657491048177,
+        0.3907098054885864,
+        0.9641829596625434
+      ],
+      "snap": 1
+    },
+    {
+      "t": 2.0,
+      "kind": "first_pass",
+      "box": [
+        0.9355775833129882,
+        0.24297845628526477,
+        0.9746603012084961,
+        0.45137435065375436
+      ],
+      "snap": 2,
+      "p": 0.128,
+      "label": "unsure",
+      "uncertainty": 0.551,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "latency_s": 0.61
+    },
+    {
+      "t": 2.0,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.128,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "box": [
+        0.9355775833129882,
+        0.24297845628526477,
+        0.9746603012084961,
+        0.45137435065375436
+      ],
+      "snap": 2
+    },
+    {
+      "t": 4.0,
+      "kind": "first_pass",
+      "box": [
+        0.46624183654785156,
+        0.6221680535210503,
+        0.5311754226684571,
+        0.9053223503960504
+      ],
+      "snap": 3,
+      "p": 0.1,
+      "label": "unsure",
+      "uncertainty": 0.47,
+      "reason": "A person is walking on a paved surface.",
+      "latency_s": 0.67
+    },
+    {
+      "t": 4.0,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.1,
+      "reason": "A person is walking on a paved surface.",
+      "box": [
+        0.46624183654785156,
+        0.6221680535210503,
+        0.5311754226684571,
+        0.9053223503960504
+      ],
+      "snap": 3
+    },
+    {
+      "t": 6.01,
+      "kind": "first_pass",
+      "box": [
+        0.00016105175018310547,
+        0.9030570136176215,
+        0.06814197301864625,
+        0.9968633015950521
+      ],
+      "snap": 4,
+      "p": 0.021,
+      "label": "unsure",
+      "uncertainty": 0.149,
+      "reason": "No unusual activity or signs of an anomaly are visible in the image.",
+      "latency_s": 0.65
+    },
+    {
+      "t": 6.01,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.021,
+      "reason": "No unusual activity or signs of an anomaly are visible in the image.",
+      "box": [
+        0.00016105175018310547,
+        0.9030570136176215,
+        0.06814197301864625,
+        0.9968633015950521
+      ],
+      "snap": 4
+    },
+    {
+      "t": 6.01,
+      "kind": "first_pass",
+      "box": [
+        0.23330202102661132,
+        0.906488037109375,
+        0.2844993591308594,
+        0.9988423665364583
+      ],
+      "snap": 5,
+      "p": 0.086,
+      "label": "unsure",
+      "uncertainty": 0.422,
+      "reason": "A man is walking, which is ordinary behavior and not an anomaly.",
+      "latency_s": 0.6
+    },
+    {
+      "t": 6.01,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.086,
+      "reason": "A man is walking, which is ordinary behavior and not an anomaly.",
+      "box": [
+        0.23330202102661132,
+        0.906488037109375,
+        0.2844993591308594,
+        0.9988423665364583
+      ],
+      "snap": 5
+    },
+    {
+      "t": 6.01,
+      "kind": "first_pass",
+      "box": [
+        0.5339937686920166,
+        0.6856246100531684,
+        0.5947947978973389,
+        0.9975752936469184
+      ],
+      "snap": 6,
+      "p": 0.139,
+      "label": "unsure",
+      "uncertainty": 0.582,
+      "reason": "A person is walking on a paved surface.",
+      "latency_s": 0.56
+    },
+    {
+      "t": 6.01,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.139,
+      "reason": "A person is walking on a paved surface.",
+      "box": [
+        0.5339937686920166,
+        0.6856246100531684,
+        0.5947947978973389,
+        0.9975752936469184
+      ],
+      "snap": 6
+    },
+    {
+      "t": 8.01,
+      "kind": "first_pass",
+      "box": [
+        0.3554433822631836,
+        0.915724860297309,
+        0.4081296920776367,
+        0.9988723754882812
+      ],
+      "snap": 7,
+      "p": 0.215,
+      "label": "anomaly",
+      "uncertainty": 0.75,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "latency_s": 0.67
+    },
+    {
+      "t": 8.01,
+      "kind": "decision",
+      "outcome": "alarm",
+      "via": "wide",
+      "p": 0.215,
+      "reason": "A person is walking on a sidewalk, which is an ordinary behavior.",
+      "box": [
+        0.3554433822631836,
+        0.915724860297309,
+        0.4081296920776367,
+        0.9988723754882812
+      ],
+      "snap": 7
+    },
+    {
+      "t": 8.01,
+      "kind": "first_pass",
+      "box": [
+        0.5759331703186035,
+        0.47576285468207463,
+        0.6313028335571289,
+        0.6823622809516059
+      ],
+      "snap": 8,
+      "p": 0.139,
+      "label": "unsure",
+      "uncertainty": 0.581,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "latency_s": 0.63
+    },
+    {
+      "t": 8.01,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.139,
+      "reason": "A person is walking on a paved surface, which is an ordinary behavior.",
+      "box": [
+        0.5759331703186035,
+        0.47576285468207463,
+        0.6313028335571289,
+        0.6823622809516059
+      ],
+      "snap": 8
+    },
+    {
+      "t": 10.91,
+      "kind": "first_pass",
+      "box": [
+        0.5472665786743164,
+        0.825118170844184,
+        0.6642552375793457,
+        1.0
+      ],
+      "snap": 9,
+      "p": 0.105,
+      "label": "unsure",
+      "uncertainty": 0.485,
+      "reason": "A person is standing near a car, and another person is walking on the ground.",
+      "latency_s": 0.78
+    },
+    {
+      "t": 10.91,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.105,
+      "reason": "A person is standing near a car, and another person is walking on the ground.",
+      "box": [
+        0.5472665786743164,
+        0.825118170844184,
+        0.6642552375793457,
+        1.0
+      ],
+      "snap": 9
+    }
+  ]
+}

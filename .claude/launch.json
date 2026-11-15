@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lookcloser-demo",
+      "runtimeExecutable": ".venv/bin/python",
+      "runtimeArgs": ["-m", "lookcloser.server"],
+      "port": 8000
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "summary": {
+    "candidates_scored": 6,
+    "decisions": 6,
+    "alarms": 2,
+    "rejected": 4,
+    "escalated": 0,
+    "guessed": 4,
+    "zooms": 0,
+    "zoom_rate": 0.0,
+    "mean_uncertainty_drop": null,
+    "mean_reward": null,
+    "camera_seconds_away": 0,
+    "unseen_candidates": 0,
+    "mean_vlm_latency_s": 0.71,
+    "mode": "passive",
+    "scene_seconds": 14.0,
+    "wall_seconds": 10.2,
+    "gate_calibrated": false
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.13054964542388917,
+        0.5940309312608507,
+        0.19066181182861328,
+        0.7404930962456597
+      ],
+      "p": 0.301,
+      "label": "unsure",
+      "uncertainty": 0.883,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking normally.",
+      "latency_s": 0.91
+    },
+    {
+      "t": 0.0,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.301,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking normally.",
+      "box": [
+        0.13054964542388917,
+        0.5940309312608507,
+        0.19066181182861328,
+        0.7404930962456597
+      ]
+    },
+    {
+      "t": 0.0,
+      "kind": "first_pass",
+      "box": [
+        0.24238691329956055,
+        0.6053010728624132,
+        0.2625282764434814,
+        0.7367986043294271
+      ],
+      "p": 0.677,
+      "label": "unsure",
+      "uncertainty": 0.907,
+      "reason": "A person is walking near a blue and white vehicle, which appears to be a bus.",
+      "latency_s": 0.63
+    },
+    {
+      "t": 0.0,
+      "kind": "decision",
+      "outcome": "alarm",
+      "via": "guess",
+      "p": 0.677,
+      "reason": "A person is walking near a blue and white vehicle, which appears to be a bus.",
+      "box": [
+        0.24238691329956055,
+        0.6053010728624132,
+        0.2625282764434814,
+        0.7367986043294271
+      ]
+    },
+    {
+      "t": 5.04,
+      "kind": "first_pass",
+      "box": [
+        0.7609025955200195,
+        0.2876436445448134,
+        0.9019301414489747,
+        0.4860265096028646
+      ],
+      "p": 0.189,
+      "label": "normal",
+      "uncertainty": 0.7,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking and standing normally.",
+      "latency_s": 0.68
+    },
+    {
+      "t": 5.04,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "wide",
+      "p": 0.189,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking and standing normally.",
+      "box": [
+        0.7609025955200195,
+        0.2876436445448134,
+        0.9019301414489747,
+        0.4860265096028646
+      ]
+    },
+    {
+      "t": 8.0,
+      "kind": "first_pass",
+      "box": [
+        0.13066349029541016,
+        0.5918202718098958,
+        0.19068434238433837,
+        0.7408326890733506
+      ],
+      "p": 0.288,
+      "label": "unsure",
+      "uncertainty": 0.866,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking and standing normally.",
+      "latency_s": 0.7
+    },
+    {
+      "t": 8.0,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "guess",
+      "p": 0.288,
+      "reason": "No unusual activity or threats visible; individuals appear to be walking and standing normally.",
+      "box": [
+        0.13066349029541016,
+        0.5918202718098958,
+        0.19068434238433837,
+        0.7408326890733506
+      ]
+    },
+    {
+      "t": 8.0,
+      "kind": "first_pass",
+      "box": [
+        0.2422696590423584,
+        0.6032785203721788,
+        0.2624539852142334,
+        0.736321767171224
+      ],
+      "p": 0.705,
+      "label": "unsure",
+      "uncertainty": 0.875,
+      "reason": "A person is walking near a blue vehicle, which appears to be a bus, in a typical setting.",
+      "latency_s": 0.65
+    },
+    {
+      "t": 8.0,
+      "kind": "decision",
+      "outcome": "alarm",
+      "via": "guess",
+      "p": 0.705,
+      "reason": "A person is walking near a blue vehicle, which appears to be a bus, in a typical setting.",
+      "box": [
+        0.2422696590423584,
+        0.6032785203721788,
+        0.2624539852142334,
+        0.736321767171224
+      ]
+    },
+    {
+      "t": 13.04,
+      "kind": "first_pass",
+      "box": [
+        0.7609618186950684,
+        0.2883833567301432,
+        0.8988893508911133,
+        0.48585442437065973
+      ],
+      "p": 0.235,
+      "label": "normal",
+      "uncertainty": 0.786,
+      "reason": "No unusual activity or threats visible; individuals appear to be standing and conversing normally.",
+      "latency_s": 0.7
+    },
+    {
+      "t": 13.04,
+      "kind": "decision",
+      "outcome": "reject",
+      "via": "wide",
+      "p": 0.235,
+      "reason": "No unusual activity or threats visible; individuals appear to be standing and conversing normally.",
+      "box": [
+        0.7609618186950684,
+        0.2883833567301432,
+        0.8988893508911133,
+        0.48585442437065973
+      ]
+    }
+  ]
+}

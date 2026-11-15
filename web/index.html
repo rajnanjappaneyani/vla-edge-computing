@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Look Closer Before You Alarm</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --panel: #fff; --ink: #16181d; --muted: #667085; --line: #dfe3ea;
+    --alarm: #d92d20; --reject: #17803d; --escalate: #c2570c; --unsure: #b7791f; --accent: #1f6feb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1115; --panel: #181b21; --ink: #e8eaee; --muted: #98a2b3; --line: #2a2f38;
+            --alarm: #f97066; --reject: #4ade80; --escalate: #fb923c; --unsure: #fbbf24; --accent: #6ea8fe; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 -apple-system, system-ui, sans-serif; }
+  main { max-width: 1400px; margin: 0 auto; padding: 16px; }
+  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; }
+  h1 { font-size: 18px; margin: 0 auto 0 0; }
+  select, button, .seg label { font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; }
+  button { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  .seg { display: flex; }
+  .seg input { position: absolute; opacity: 0; }
+  .seg label { border-radius: 0; margin-left: -1px; cursor: pointer; }
+  .seg label:first-of-type { border-radius: 6px 0 0 6px; margin-left: 0; }
+  .seg label:last-of-type { border-radius: 0 6px 6px 0; }
+  .seg input:checked + label { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .seg input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .note { color: var(--muted); margin: 0 0 12px; min-height: 1.45em; }
+  .warn { color: var(--unsure); font-weight: 600; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 0; }
+  .card h2 { font-size: 13px; font-weight: 600; margin: 0 0 8px; display: flex; gap: 8px; align-items: center; }
+  .card h2 small { font-weight: 400; color: var(--muted); }
+  .feed { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 6px; display: block; object-fit: contain; }
+  .chip { margin-left: auto; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); font-weight: 600; font-size: 12px; }
+  .chip.moving, .chip.returning { color: var(--accent); border-color: var(--accent); }
+  .chip.scoring, .chip.verifying { color: var(--unsure); border-color: var(--unsure); }
+  .evidence { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .evidence figure { margin: 0; }
+  .evidence img { width: 100%; height: 190px; object-fit: contain; background: #000; border-radius: 6px; display: block; }
+  .evidence figcaption { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .bar { position: relative; height: 8px; background: var(--line); border-radius: 4px; margin: 4px 0 2px; }
+  .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: var(--muted); }
+  .outcome { font-size: 20px; font-weight: 700; margin: 10px 0 2px; }
+  .alarm { color: var(--alarm); } .reject { color: var(--reject); } .escalate { color: var(--escalate); }
+  .facts { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .empty { color: var(--muted); padding: 24px 0; text-align: center; }
+  #log { list-style: none; margin: 0; padding: 0; max-height: 330px; overflow-y: auto; font-variant-numeric: tabular-nums; }
+  #log li { padding: 5px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 52px 1fr; gap: 8px; }
+  #log time { color: var(--muted); }
+  #log b { font-weight: 600; }
+  .stats { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 12px; }
+  .stats div { min-width: 90px; }
+  .stats strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .stats span { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Look Closer Before You Alarm</h1>
+    <select id="clip" aria-label="Clip"></select>
+    <div class="seg" role="radiogroup" aria-label="Mode">
+      <input type="radio" name="mode" id="m-active" value="active" checked><label for="m-active" title="Zoom only when the gate is unsure">Zoom when unsure</label>
+      <input type="radio" name="mode" id="m-passive" value="passive"><label for="m-passive" title="Never zoom; guess when unsure">Never zoom</label>
+      <input type="radio" name="mode" id="m-always" value="always"><label for="m-always" title="Rule-based: zoom on every detection">Always zoom</label>
+    </div>
+    <label><input type="checkbox" id="paired"> Fixed camera + PTZ pair</label>
+    <button id="start" disabled>Loading models…</button>
+  </header>
+  <p class="note" id="note"></p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Scene <small id="wide-note">what a wide view covers</small><span class="chip" id="phase">idle</span></h2>
+      <img class="feed" id="wide" alt="Wide view of the scene with detected people and the PTZ field of view">
+    </section>
+    <section class="card">
+      <h2>PTZ camera view <small id="res-note"></small><span class="chip" id="zoom">1.0×</span></h2>
+      <img class="feed" id="view" alt="What the PTZ camera currently sees">
+    </section>
+    <section class="card">
+      <h2>Latest decision</h2>
+      <div id="decision"><p class="empty">No decision yet.</p></div>
+    </section>
+    <section class="card">
+      <h2>Event log</h2>
+      <ul id="log"></ul>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:12px">
+    <h2>This run</h2>
+    <div class="stats" id="stats"><span class="empty">Start a clip to see totals.</span></div>
+  </section>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+let runId = -1, seen = 0, started = false;
+const pct = p => (p * 100).toFixed(0) + '%';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const VIA = {wide: 'wide view was enough', zoom: 'after zooming in', guess: 'guessed (no zoom available)'};
+const OUT = {alarm: 'Alarm', reject: 'Rejected', escalate: 'Still unsure: sent to guard'};
+
+function probBar(label, p) {
+  return `<div>${label}: P(anomaly) ${pct(p)}<div class="bar"><i style="width:${pct(p)}"></i></div></div>`;
+}
+
+function showDecision(e) {
+  const snap = i => `/api/snap/${runId}/${i}`;
+  let html = '';
+  if (e.via === 'zoom') {
+    html += `<div class="evidence">
+      <figure><img src="${snap(e.snap_before)}" alt="Enlarged crop of the wide view"><figcaption>Before: crop of the wide view (same pixels, enlarged)</figcaption>${probBar('Before', e.p_before)}</figure>
+      <figure><img src="${snap(e.snap)}" alt="Close-up after zooming"><figcaption>After: close-up from the zoom (new pixels)</figcaption>${probBar('After', e.p)}</figure>
+    </div>`;
+  } else {
+    html += `<div class="evidence"><figure><img src="${snap(e.snap)}" alt="Enlarged crop of the wide view"><figcaption>Crop of the wide view</figcaption>${probBar('Score', e.p)}</figure></div>`;
+  }
+  html += `<div class="outcome ${e.outcome}">${OUT[e.outcome]}</div><div>${esc(e.reason)}</div>`;
+  const facts = [`t = ${e.t}s`, VIA[e.via]];
+  if (e.via === 'zoom') facts.push(`camera travel ${e.t_move}s`, `uncertainty ${e.u_before} → ${e.u_after} bits`, `unseen people while zoomed: ${e.n_missed}`, `reward ${e.reward}`, `VLM ${e.latency_s}s`);
+  html += `<div class="facts">${facts.join(' · ')}</div>`;
+  $('decision').innerHTML = html;
+}
+
+function logLine(e) {
+  let text;
+  if (e.kind === 'first_pass') text = `Wide view scored: P(anomaly) ${pct(e.p)} → <b>${e.label}</b> (${e.latency_s}s)`;
+  else if (e.kind === 'move') text = `Unsure → zooming to ${e.zoom}×`;
+  else if (e.kind === 'deferred') text = `Another unsure candidate waits (camera is busy)`;
+  else if (e.kind === 'home') text = `Back to wide view after ${e.away_s}s away`;
+  else if (e.kind === 'decision') text = `<b class="${e.outcome}">${OUT[e.outcome]}</b> — ${VIA[e.via]}, P(anomaly) ${pct(e.p)}`;
+  else return;
+  const li = document.createElement('li');
+  li.innerHTML = `<time>${e.t.toFixed(1)}s</time><span>${text}</span>`;
+  $('log').prepend(li);
+}
+
+function showStats(s) {
+  if (!s) return;
+  const items = [
+    [s.candidates_scored, 'candidates scored'], [s.zooms, 'zooms'], [s.alarms, 'alarms'], [s.rejected, 'rejected'],
+    [s.escalated, 'still unsure'], [s.guessed, 'guessed'], [s.camera_seconds_away + 's', 'camera away from wide'],
+    [s.unseen_candidates, 'unseen while zoomed'], [s.mean_vlm_latency_s == null ? '–' : s.mean_vlm_latency_s + 's', 'mean VLM time'],
+  ];
+  $('stats').innerHTML = items.map(([v, k]) => `<div><strong>${v}</strong><span>${k}</span></div>`).join('');
+}
+
+async function poll() {
+  try {
+    const s = await (await fetch(`/api/state?since=${seen}`)).json();
+    if (s.error) { $('note').innerHTML = `<span class="warn">Model failed to load: ${esc(s.error)}</span>`; return; }
+    const btn = $('start');
+    if (s.ready && btn.disabled && !started) { btn.disabled = false; btn.textContent = 'Start'; }
+    if (s.run_id !== runId) {  // a new run began: reset the page
+      runId = s.run_id; seen = 0;
+      $('log').innerHTML = ''; $('decision').innerHTML = '<p class="empty">No decision yet.</p>';
+      if (s.run_id > 0) { $('wide').src = '/stream/wide?' + runId; $('view').src = '/stream/view?' + runId; }
+      setTimeout(poll, 100); return;
+    }
+    if (s.info.clip) {
+      const i = s.info;
+      $('note').innerHTML = `The system sees ${i.wide} of a ${i.native} scene; zoom up to ${i.max_zoom}× reveals real detail. Verifier: ${esc(i.verifier)}, anomaly list: ${esc(i.anomalies)}. ` +
+        (i.calibrated ? 'Gate: calibrated.' : '<span class="warn">Gate: uncalibrated (fixed 25–75% band).</span>');
+      $('res-note').textContent = `${i.wide} at every zoom level`;
+    } else if (s.ready) {
+      $('note').textContent = 'Pick a clip and press Start.';
+    }
+    const st = s.status;
+    $('phase').textContent = st.phase; $('phase').className = 'chip ' + st.phase;
+    $('zoom').textContent = (st.zoom || 1).toFixed(1) + '×';
+    $('wide-note').textContent = st.wide_is_seen === false ? 'dimmed area is unseen while zoomed' : 'what a wide view covers';
+    for (const e of s.events) { logLine(e); if (e.kind === 'decision') showDecision(e); }
+    seen = s.n_events;
+    showStats(s.summary);
+    if (started && !s.running && st.phase === 'finished') { started = false; btn.disabled = false; btn.textContent = 'Run again'; }
+  } catch (err) { /* server restarting; keep polling */ }
+  setTimeout(poll, 300);
+}
+
+async function init() {
+  const clips = await (await fetch('/api/clips')).json();
+  $('clip').innerHTML = clips.map(c => `<option>${esc(c)}</option>`).join('') || '<option value="">No clips in data/</option>';
+  $('start').onclick = async () => {
+    const clip = $('clip').value; if (!clip) return;
+    started = true; $('start').textContent = 'Restart';
+    await fetch('/api/start', {method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({clip, mode: document.querySelector('input[name=mode]:checked').value, paired: $('paired').checked})});
+  };
+  poll();
+}
+init();
+</script>
+</body>
+</html>
