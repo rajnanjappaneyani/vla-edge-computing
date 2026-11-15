@@ -34,6 +34,13 @@ ANOMALY_SETS = {
         "or sleeping or lying on the ground",
         "walking, standing, talking, carrying things, using a phone, getting in or out of a car",
     ),
+    # MSAD crime categories (assault, fighting, robbery, shooting, vandalism), many scene types.
+    "msad": (
+        "fighting, assault, hitting or kicking or pushing someone, robbery or snatching or theft, "
+        "threatening someone, a gun or knife or other weapon, shooting, "
+        "or vandalism such as smashing, breaking or damaging property",
+        "walking, standing, talking, shopping, paying at a counter, working, sitting, driving or parking",
+    ),
 }
 ANOMALIES = ANOMALY_SETS["general"][0]
 PREFILL = "Verdict:"

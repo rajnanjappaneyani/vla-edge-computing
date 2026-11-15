@@ -74,6 +74,25 @@ Decisions with three frames, 5-fold by clip, gate bounds 5% missed / 10% false a
 
 Calibration works: expected calibration error falls from 0.39 to 0.03 on held-out clips, and the gate dismisses 2.6% of anomalous frames without a look (bound 5%); it alarms on 10.5% of normal frames (bound 10%). Seeing motion helps the close-up, but zooming is still not shown to beat the wide crop: the gain interval includes zero, and zoom-when-unsure matches always-zoom with about half the camera moves rather than beating never-zoom.
 
+## MSAD crime clips
+
+MSAD is licensed for private academic use and is not in this repository. With the dataset on disk, `python -I scripts/prepare_msad.py "<MSAD folder>"... --out data/msad` lays out the five crime categories (assault, fighting, robbery, shooting, vandalism) and a spread of normal test clips, with frame labels built from `anomaly_annotation.csv`.
+
+```bash
+LOOKCLOSER_ANOMALIES=msad .venv/bin/python -m lookcloser.evaluate collect data/msad --wide 320x180 --frames 3 --every 2 --out runs/msad_scores_far_mf.csv
+```
+
+Results on 103 clips (71 crime, 32 normal; 16 more had no detected people), 908 scored frames, 424 anomalous, 320×180 wide view, three frames per look:
+
+| Frames | AUC, wide crop | AUC, zoomed | Gain from zoom (95% interval over clips) |
+| --- | --- | --- | --- |
+| All | 0.826 | 0.811 | −0.015 (−0.032 to +0.003) |
+| Zoom under 1.3× (47% of frames) | 0.742 | 0.727 | −0.015 (−0.036 to +0.012) |
+| Zoom 1.3× to 2.5× | 0.803 | 0.828 | +0.025 (−0.006 to +0.059) |
+| Zoom 2.5× and over | 0.946 | 0.909 | −0.037 (−0.092 to −0.006) |
+
+Zooming does not help on real crime footage either, and calibrated never-zoom (recall 0.743, false alarms 0.236) is slightly better than zoom-when-unsure (0.729, 0.273). Calibration still works (ECE 0.37 to 0.06). Nearly half the frames are close-range scenes where people already fill the view.
+
 ## Layout
 
 | File | Role |

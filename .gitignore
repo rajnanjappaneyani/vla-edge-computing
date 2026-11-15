@@ -2,3 +2,7 @@
 __pycache__/
 .pytest_cache/
 .DS_Store
+
+# MSAD is licensed for private academic use only: never commit or share it
+MSAD DATASET*/
+data/msad/

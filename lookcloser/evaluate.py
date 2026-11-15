@@ -163,7 +163,8 @@ def report(path: str, save_gate: str | None, alpha_miss: float, alpha_fa: float,
     # Cross-fit by clip: every frame is judged by gates that never saw its clip.
     # Anomaly and normal clips are dealt into folds separately so each fold has both.
     fold_of = {}
-    for group in (sorted(c for c in clips if c.endswith("_1")), sorted(c for c in clips if not c.endswith("_1"))):
+    has_anomaly = {c: any(r["label"] == "1" for r in by_clip[c]) for c in clips}
+    for group in ([c for c in clips if has_anomaly[c]], [c for c in clips if not has_anomaly[c]]):
         for k, c in enumerate(group):
             fold_of[c] = k % folds
     pw, pz = np.zeros(len(rows)), np.zeros(len(rows))
